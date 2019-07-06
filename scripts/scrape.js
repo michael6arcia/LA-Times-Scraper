@@ -7,8 +7,8 @@ var cheerio = require("cheerio");
 
 // This function will scrape the NYTimes website
 var scrape = function() {
-  // Scrape the NYTimes website
-  return axios.get("http://www.nytimes.com").then(function(res) {
+  // Scrape the LATimes website
+  return axios.get("http://www.latimes.com").then(function(res) {
     var $ = cheerio.load(res.data);
     console.log("scraping");
     // Make an empty array to save our article info
@@ -16,12 +16,12 @@ var scrape = function() {
 
     // Now, find and loop through each element that has the ".assetWrapper" class
     // (i.e, the section holding the articles)
-    $(".assetWrapper").each(function(i, element) {
+    $(".card").each(function(i, element) {
       // In each article section, we grab the headline, URL, and summary
 
       // Grab the headline of the article
       var head = $(this)
-        .find("h2")
+        .find("h5")
         .text()
         .trim();
 
@@ -32,7 +32,7 @@ var scrape = function() {
 
       // Grab the summary of the article
       var sum = $(this)
-        .find("p")
+        .find("a")
         .text()
         .trim();
 
@@ -47,7 +47,7 @@ var scrape = function() {
         var dataToAdd = {
           headline: headNeat,
           summary: sumNeat,
-          url: "https://www.nytimes.com" + url
+          url: "https://www.latimes.com" + url
         };
 
         // Push new article into articles array
