@@ -171,3 +171,19 @@ textarea {
   border-width: 0.5px;
   border-color: #4b1919;
 }
+
+.save {
+  margin-left: 10px;
+  font-weight: 800;
+  color: white;
+}
+
+.save:hover {
+  background: whitesmoke;
+  color:rgb(110, 110, 110) !important;
+}
+
+.save:active {
+  background: white;
+  color: white;
+}
