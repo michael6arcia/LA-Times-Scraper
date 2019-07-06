@@ -12,7 +12,7 @@ var exphbs = require("express-handlebars");
 var PORT = process.env.PORT || 3000;
 
 // Instantiate our Express App
-var app = express();
+var app = express(); 
 
 // Require our routes
 var routes = require("./routes");
@@ -35,7 +35,6 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI);
-
 // Listen on the port
 app.listen(PORT, function() {
   console.log("Listening on port: " + PORT);
